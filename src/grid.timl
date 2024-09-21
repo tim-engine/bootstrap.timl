@@ -1,0 +1,45 @@
+// This module implements containers and grid system
+// for Tim Engine v0.1.3 based on Bootstrap v5.x
+
+block container*(children: block) =
+  // Create a `container` block
+  div.container $blockAttributes
+    $children
+
+for $size in ["fluid", "xxl", "xl", "lg", "md", "sm"]:
+  block container-${$size}*(children: block) =
+    // Create a `container-${size}` block
+    div.container-${$size} $blockAttributes
+      $children
+
+block row*(children: block) =
+  // Create a `row` block
+  div.row $blockAttributes
+    $children
+
+// Define column blocks for all breakpoints
+block col*(children: block) =
+  // Create an auto `col` block
+  div.col $blockAttributes
+    $children
+
+for $x in 1..12:
+  block col-{$x}*(children: block) =
+    // Create a `col-{$x}` block
+    div.col-{$x} $blockAttributes
+      $children
+  
+  block col-sm-{$x}*(children: block) =
+    // Create a `col-sm-{$x}` block
+    div.col-sm-{$x} $blockAttributes
+      $children
+
+  block col-md-{$x}*(children: block) =
+    // Create a `col-md-{$x}` block
+    div.col-md-{$x} $blockAttributes
+      $children
+
+  block col-lg-{$x}*(children: block) =
+    // Create a `col-lg-{$x}` block
+    div.col-lg-{$x} $blockAttributes
+      $children
