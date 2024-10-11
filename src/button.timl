@@ -1,0 +1,29 @@
+// This module implements Buttons Component
+// for Tim Engine based on Bootstrap v5.x
+
+block button*(address: string, label: string) =
+  // Create a new `button` element
+  button.btn $blockAttributes href=$address: $label
+
+block link-button*(address: string, label: string) =
+  // Create a new `a` element
+  a.btn $blockAttributes href=$address: $label
+
+block submit*(label: string) =
+  // Create a submit `input` 
+  input.btn $blockAttributes type="submit"
+
+block reset*(label: string) =
+  // Create a reset `input`
+  input.btn $blockAttributes type="reset"
+
+block button-group*(buttons: block) =
+  // Create a group of buttons
+  div.btn-group role="group"
+    $buttons
+
+block button-toolbar*(buttonGroups: block) = 
+  // Combine sets of `button-group` into `button-toolbar`
+  // for more complex components
+  div.btn-toolbar role="roolbar"
+    $buttonGroups

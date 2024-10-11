@@ -1,5 +1,5 @@
-// This module implements containers and grid system
-// for Tim Engine v0.1.3 based on Bootstrap v5.x
+// This module implements Container & Grid System
+// for Tim Engine based on Bootstrap v5.x
 
 block container*(children: block) =
   // Create a `container` block
@@ -7,9 +7,9 @@ block container*(children: block) =
     $children
 
 for $size in ["fluid", "xxl", "xl", "lg", "md", "sm"]:
-  block container-${$size}*(children: block) =
-    // Create a `container-${size}` block
-    div.container-${$size} $blockAttributes
+  block container-{$size}*(children: block) =
+    // Create a `container-{$size}` block
+    div.container-{$size} $blockAttributes
       $children
 
 block row*(children: block) =

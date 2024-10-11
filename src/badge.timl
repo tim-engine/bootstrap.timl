@@ -1,0 +1,17 @@
+// This module implements Badge Component
+// for Tim Engine based on Bootstrap v5.x
+
+block badge*(label: string) =
+  // Create a new `badge` span
+  span.badge $blockAttributes: $label
+
+block pill-badge*(label: string) =
+  // Create a new rounded pill `badge`
+  @badge.rounded-pill, $label
+
+block counter-badge*(count: int) =
+  // Create a transparent notification-like badge with
+  // given `count`. The `rounded-pill` utility class can be applied.
+  // todo: sufix with (e.g `99+`) when count is more than `max`
+  span.badge.position-absolute.top-0
+      .translate-middle.rounded-pill $blockAttributes: $count
