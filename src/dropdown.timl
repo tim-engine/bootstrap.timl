@@ -1,0 +1,41 @@
+// Dropdown component
+// https://getbootstrap.com/docs/5.3/components/dropdowns/
+
+macro dropdown-item*(href: string, label: string) =
+  li > a.dropdown-item href=$href: $label
+
+macro dropdown-divider*() =
+  li > hr.dropdown-divider
+
+macro dropdown-header*(text: string) =
+  li > h6.dropdown-header: $text
+
+macro dropdown*(label: string) =
+  div.dropdown
+    button.btn.btn-secondary.dropdown-toggle type="button" data-bs-toggle="dropdown" aria-expanded="false": $label
+    ul.dropdown-menu
+      @statement
+
+macro dropdown-center*(label: string) =
+  div.dropdown-center
+    button.btn.btn-secondary.dropdown-toggle type="button" data-bs-toggle="dropdown" aria-expanded="false": $label
+    ul.dropdown-menu
+      @statement
+
+macro dropup*(label: string) =
+  div.btn-group.dropup
+    button.btn.btn-secondary.dropdown-toggle type="button" data-bs-toggle="dropdown" aria-expanded="false": $label
+    ul.dropdown-menu
+      @statement
+
+macro dropend*(label: string) =
+  div.btn-group.dropend
+    button.btn.btn-secondary.dropdown-toggle type="button" data-bs-toggle="dropdown" aria-expanded="false": $label
+    ul.dropdown-menu
+      @statement
+
+macro dropstart*(label: string) =
+  div.btn-group.dropstart
+    button.btn.btn-secondary.dropdown-toggle type="button" data-bs-toggle="dropdown" aria-expanded="false": $label
+    ul.dropdown-menu
+      @statement

@@ -1,0 +1,22 @@
+// Button group
+// https://getbootstrap.com/docs/5.3/components/button-group/
+
+macro button-group*() =
+  div.btn-group role="group"
+    @statement
+
+macro button-group-vertical*() =
+  div.btn-group-vertical role="group"
+    @statement
+
+macro button-group-lg*() =
+  div.btn-group.btn-group-lg role="group"
+    @statement
+
+macro button-group-sm*() =
+  div.btn-group.btn-group-sm role="group"
+    @statement
+
+macro button-toolbar*() =
+  div.btn-toolbar role="toolbar"
+    @statement

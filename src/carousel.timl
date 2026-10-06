@@ -1,0 +1,38 @@
+// Carousel
+// https://getbootstrap.com/docs/5.3/components/carousel/
+
+macro carousel-item*(src: string, alt: string = "") =
+  div.carousel-item
+    img.d-block.w-100 src=$src alt=$alt
+
+macro carousel-item-active*(src: string, alt: string = "") =
+  div.carousel-item.active
+    img.d-block.w-100 src=$src alt=$alt
+
+macro carousel-item-caption*(src: string, caption: string, alt: string = "") =
+  div.carousel-item
+    img.d-block.w-100 src=$src alt=$alt
+    div.carousel-caption.d-none.d-md-block
+      p: $caption
+
+macro carousel*() =
+  div.carousel.slide data-bs-ride="carousel"
+    div.carousel-inner
+      @statement
+    button.carousel-control-prev type="button" data-bs-slide="prev"
+      span.carousel-control-prev-icon aria-hidden="true"
+      span.visually-hidden: "Previous"
+    button.carousel-control-next type="button" data-bs-slide="next"
+      span.carousel-control-next-icon aria-hidden="true"
+      span.visually-hidden: "Next"
+
+macro carousel-fade*() =
+  div.carousel.slide.carousel-fade data-bs-ride="carousel"
+    div.carousel-inner
+      @statement
+    button.carousel-control-prev type="button" data-bs-slide="prev"
+      span.carousel-control-prev-icon aria-hidden="true"
+      span.visually-hidden: "Previous"
+    button.carousel-control-next type="button" data-bs-slide="next"
+      span.carousel-control-next-icon aria-hidden="true"
+      span.visually-hidden: "Next"

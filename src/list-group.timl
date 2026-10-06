@@ -1,0 +1,30 @@
+// List group
+// https://getbootstrap.com/docs/5.3/components/list-group/
+
+macro list-group*() =
+  ul.list-group
+    @statement
+
+macro list-group-flush*() =
+  ul.list-group.list-group-flush
+    @statement
+
+macro list-group-horizontal*() =
+  ul.list-group.list-group-horizontal
+    @statement
+
+macro list-group-item*(text: string) =
+  li.list-group-item: $text
+
+macro list-group-item-action*(href: string, label: string) =
+  a.list-group-item.list-group-item-action href=$href: $label
+
+macro list-group-item-active*(text: string) =
+  li.list-group-item.active aria-current="true": $text
+
+macro list-group-item-disabled*(text: string) =
+  li.list-group-item.disabled aria-disabled="true": $text
+
+@static for $v in ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]:
+  macro list-group-item-{$v}*(text: string) =
+    li.list-group-item.list-group-item-{$v}: $text

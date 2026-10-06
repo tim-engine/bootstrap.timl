@@ -1,29 +1,27 @@
-// This module implements Buttons Component
-// for Tim Engine based on Bootstrap v5.x
+// Button component
+// https://getbootstrap.com/docs/5.3/components/buttons/
 
-block button*(address: string, label: string) =
-  // Create a new `button` element
-  button.btn $blockAttributes href=$address: $label
+macro button*(label: string) =
+  button.btn: $label
 
-block link-button*(address: string, label: string) =
-  // Create a new `a` element
-  a.btn $blockAttributes href=$address: $label
+macro link-button*(address: string, label: string) =
+  a.btn href=$address: $label
 
-block submit*(label: string) =
-  // Create a submit `input` 
-  input.btn $blockAttributes type="submit"
+@static for $variant in ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark", "link"]:
+  macro button-{$variant}*(label: string) =
+    button.btn.btn-{$variant}: $label
+  macro button-outline-{$variant}*(label: string) =
+    button.btn.btn-outline-{$variant}: $label
+  macro link-button-{$variant}*(address: string, label: string) =
+    a.btn.btn-{$variant} href=$address: $label
+  macro link-button-outline-{$variant}*(address: string, label: string) =
+    a.btn.btn-outline-{$variant} href=$address: $label
 
-block reset*(label: string) =
-  // Create a reset `input`
-  input.btn $blockAttributes type="reset"
+macro button-lg*(label: string) =
+  button.btn.btn-lg: $label
 
-block button-group*(buttons: block) =
-  // Create a group of buttons
-  div.btn-group role="group"
-    $buttons
+macro button-sm*(label: string) =
+  button.btn.btn-sm: $label
 
-block button-toolbar*(buttonGroups: block) = 
-  // Combine sets of `button-group` into `button-toolbar`
-  // for more complex components
-  div.btn-toolbar role="roolbar"
-    $buttonGroups
+macro button-disabled*(label: string) =
+  button.btn.disabled disabled: $label

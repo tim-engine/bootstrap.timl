@@ -1,0 +1,42 @@
+// Offcanvas component
+// https://getbootstrap.com/docs/5.3/components/offcanvas/
+
+macro offcanvas*(title: string) =
+  div.offcanvas tabindex="-1"
+    div.offcanvas-header
+      h5.offcanvas-title: $title
+      button.btn-close data-bs-dismiss="offcanvas" aria-label="Close" type="button"
+    div.offcanvas-body
+      @statement
+
+macro offcanvas-start*(title: string) =
+  div.offcanvas.offcanvas-start tabindex="-1"
+    div.offcanvas-header
+      h5.offcanvas-title: $title
+      button.btn-close data-bs-dismiss="offcanvas" aria-label="Close" type="button"
+    div.offcanvas-body
+      @statement
+
+macro offcanvas-end*(title: string) =
+  div.offcanvas.offcanvas-end tabindex="-1"
+    div.offcanvas-header
+      h5.offcanvas-title: $title
+      button.btn-close data-bs-dismiss="offcanvas" aria-label="Close" type="button"
+    div.offcanvas-body
+      @statement
+
+macro offcanvas-top*(title: string) =
+  div.offcanvas.offcanvas-top tabindex="-1"
+    div.offcanvas-header
+      h5.offcanvas-title: $title
+      button.btn-close data-bs-dismiss="offcanvas" aria-label="Close" type="button"
+    div.offcanvas-body
+      @statement
+
+macro offcanvas-bottom*(title: string) =
+  div.offcanvas.offcanvas-bottom tabindex="-1"
+    div.offcanvas-header
+      h5.offcanvas-title: $title
+      button.btn-close data-bs-dismiss="offcanvas" aria-label="Close" type="button"
+    div.offcanvas-body
+      @statement

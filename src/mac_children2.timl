@@ -1,0 +1,3 @@
+macro mycontainer3*(children: stmt) =
+  div.container
+    $children

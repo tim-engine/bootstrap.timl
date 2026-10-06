@@ -1,0 +1,28 @@
+// Spinners
+// https://getbootstrap.com/docs/5.3/components/spinners/
+
+macro spinner-border*() =
+  div.spinner-border role="status"
+    span.visually-hidden: "Loading..."
+
+@static for $v in ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]:
+  macro spinner-border-{$v}*() =
+    div.spinner-border.text-{$v} role="status"
+      span.visually-hidden: "Loading..."
+
+macro spinner-grow*() =
+  div.spinner-grow role="status"
+    span.visually-hidden: "Loading..."
+
+@static for $v in ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]:
+  macro spinner-grow-{$v}*() =
+    div.spinner-grow.text-{$v} role="status"
+      span.visually-hidden: "Loading..."
+
+macro spinner-border-sm*() =
+  div.spinner-border.spinner-border-sm role="status"
+    span.visually-hidden: "Loading..."
+
+macro spinner-grow-sm*() =
+  div.spinner-grow.spinner-grow-sm role="status"
+    span.visually-hidden: "Loading..."

@@ -1,0 +1,26 @@
+// Alert component
+// https://getbootstrap.com/docs/5.3/components/alerts/
+
+macro alert*(text: string) =
+  div.alert role="alert": $text
+
+@static for $variant in ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]:
+  macro alert-{$variant}*(text: string) =
+    div.alert.alert-{$variant} role="alert": $text
+
+macro alert-dismissible*() =
+  div.alert.alert-dismissible.fade.show role="alert"
+    @statement
+    button.btn-close type="button" data-bs-dismiss="alert" aria-label="Close"
+
+@static for $variant in ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]:
+  macro alert-dismissible-{$variant}*() =
+    div.alert.alert-{$variant}.alert-dismissible.fade.show role="alert"
+      @statement
+      button.btn-close type="button" data-bs-dismiss="alert" aria-label="Close"
+
+macro alert-heading*(text: string) =
+  h4.alert-heading: $text
+
+macro alert-link*(href: string, label: string) =
+  a.alert-link href=$href: $label

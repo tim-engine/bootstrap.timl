@@ -1,0 +1,20 @@
+// Collapse component
+// https://getbootstrap.com/docs/5.3/components/collapse/
+
+macro collapse*() =
+  div.collapse
+    @statement
+
+macro collapse-show*() =
+  div.collapse.show
+    @statement
+
+macro collapse-horizontal*() =
+  div.collapse.collapse-horizontal
+    @statement
+
+macro collapse-toggle*(target: string, label: string) =
+  button.btn.btn-primary type="button" data-bs-toggle="collapse" data-bs-target=$target aria-expanded="false": $label
+
+macro collapse-link*(target: string, label: string) =
+  a.btn.btn-primary data-bs-toggle="collapse" href=$target role="button" aria-expanded="false": $label

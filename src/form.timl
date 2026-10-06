@@ -1,0 +1,86 @@
+// Form components
+// https://getbootstrap.com/docs/5.3/forms/overview/
+
+macro input*(name: string, fieldType: string = "text") =
+  input.form-control name=$name type=$fieldType
+
+macro form-control*(label: string, name: string, fieldType: string = "text") =
+  div.mb-3
+    label.form-label: $label
+    input.form-control name=$name type=$fieldType
+
+macro form-control-floating*(label: string, name: string, fieldType: string = "text") =
+  div.form-floating.mb-3
+    input.form-control name=$name type=$fieldType placeholder=$label
+    label: $label
+
+macro form-textarea*(label: string, name: string, rows: int = 3) =
+  div.mb-3
+    label.form-label: $label
+    textarea.form-control name=$name rows=$rows
+
+macro form-textarea-floating*(label: string, name: string, rows: int = 3) =
+  div.form-floating.mb-3
+    textarea.form-control name=$name rows=$rows placeholder=$label
+    label: $label
+
+macro form-select*(name: string, opts: array) =
+  select.form-select name=$name
+    for $opt in $opts:
+      option value=$opt.value: $opt.label
+
+macro form-select-floating*(label: string, name: string) =
+  div.form-floating.mb-3
+    select.form-select name=$name
+      @statement
+    label: $label
+
+macro form-check*(label: string, name: string, fieldType: string = "checkbox") =
+  div.form-check
+    input.form-check-input type=$fieldType name=$name
+    label.form-check-label: $label
+
+macro form-check-inline*(label: string, name: string, fieldType: string = "checkbox") =
+  div.form-check.form-check-inline
+    input.form-check-input type=$fieldType name=$name
+    label.form-check-label: $label
+
+macro form-switch*(label: string, name: string) =
+  div.form-check.form-switch
+    input.form-check-input type="checkbox" name=$name role="switch"
+    label.form-check-label: $label
+
+macro form-range*(name: string) =
+  input.form-range type="range" name=$name
+
+macro form-hidden*(default: string = "") =
+  input type="hidden" value=$default
+
+macro input-hidden*(default: string = "") =
+  input type="hidden" value=$default
+
+macro form-text*(text: string) =
+  div.form-text: $text
+
+macro form-color*(label: string, name: string) =
+  div.mb-3
+    label.form-label: $label
+    input.form-control.form-control-color type="color" name=$name
+
+macro form-file*(label: string, name: string) =
+  div.mb-3
+    label.form-label: $label
+    input.form-control type="file" name=$name
+
+macro input-group*() =
+  div.input-group
+    @statement
+
+macro input-group-text*(text: string) =
+  span.input-group-text: $text
+
+macro form-submit*(label: string) =
+  button.btn.btn-primary type="submit": $label
+
+macro submit*(label: string) =
+  button.btn.btn-primary type="submit": $label

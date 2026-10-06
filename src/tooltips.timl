@@ -1,0 +1,27 @@
+// Tooltips & Popovers
+// https://getbootstrap.com/docs/5.3/components/tooltips/
+// https://getbootstrap.com/docs/5.3/components/popovers/
+
+macro tooltip-top*(text: string, label: string) =
+  button.btn.btn-secondary type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title=$text: $label
+
+macro tooltip-bottom*(text: string, label: string) =
+  button.btn.btn-secondary type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title=$text: $label
+
+macro tooltip-left*(text: string, label: string) =
+  button.btn.btn-secondary type="button" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title=$text: $label
+
+macro tooltip-right*(text: string, label: string) =
+  button.btn.btn-secondary type="button" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title=$text: $label
+
+macro popover-top*(title: string, content: string, label: string) =
+  button.btn.btn-lg.btn-danger type="button" data-bs-toggle="popover" data-bs-placement="top" data-bs-title=$title data-bs-content=$content: $label
+
+macro popover-bottom*(title: string, content: string, label: string) =
+  button.btn.btn-lg.btn-danger type="button" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-title=$title data-bs-content=$content: $label
+
+macro popover-left*(title: string, content: string, label: string) =
+  button.btn.btn-lg.btn-danger type="button" data-bs-toggle="popover" data-bs-placement="left" data-bs-title=$title data-bs-content=$content: $label
+
+macro popover-right*(title: string, content: string, label: string) =
+  button.btn.btn-lg.btn-danger type="button" data-bs-toggle="popover" data-bs-placement="right" data-bs-title=$title data-bs-content=$content: $label

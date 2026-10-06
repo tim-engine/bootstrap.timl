@@ -1,0 +1,13 @@
+// Breadcrumb component
+// https://getbootstrap.com/docs/5.3/components/breadcrumb/
+
+macro breadcrumb-item*(target: string, label: string) =
+  li.breadcrumb-item > a href=$target: $label
+
+macro breadcrumb-item-active*(label: string) =
+  li.breadcrumb-item.active aria-current="page": $label
+
+macro breadcrumb*() =
+  nav aria-label="breadcrumb"
+    ol.breadcrumb
+      @statement

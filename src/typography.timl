@@ -1,0 +1,54 @@
+// Typography
+// https://getbootstrap.com/docs/5.3/content/typography/
+
+@static for $x in 1..6:
+  macro h{$x}*(text: string) =
+    h{$x}: $text
+  macro display-{$x}*(text: string) =
+    h{$x}.display-{$x}: $text
+
+macro lead*(text: string) =
+  p.lead: $text
+
+macro small-text*(text: string) =
+  small.text-body-secondary: $text
+
+macro mark-text*(text: string) =
+  mark: $text
+
+macro blockquote*(text: string, source: string = "") =
+  figure
+    blockquote.blockquote
+      p: $text
+    if $source != "":
+      figcaption.blockquote-footer: $source
+
+macro code-inline*(text: string) =
+  code: $text
+
+macro kbd-text*(text: string) =
+  kbd: $text
+
+macro list-unstyled*() =
+  ul.list-unstyled
+    @statement
+
+macro list-inline*() =
+  ul.list-inline
+    @statement
+
+macro list-inline-item*(text: string) =
+  li.list-inline-item: $text
+
+macro text-muted*(text: string) =
+  span.text-body-secondary: $text
+
+@static for $w in ["bold", "bolder", "semibold", "medium", "normal", "light", "lighter"]:
+  macro fw-{$w}*(text: string) =
+    span.fw-{$w}: $text
+
+macro fst-italic*(text: string) =
+  span.fst-italic: $text
+
+macro text-center*(text: string) =
+  p.text-center: $text

@@ -1,0 +1,42 @@
+// Card component
+// https://getbootstrap.com/docs/5.3/components/card/
+
+macro card*(title: string) =
+  div.card
+    div.card-body
+      h5.card-title: $title
+      @statement
+
+macro card-header*(title: string) =
+  div.card
+    div.card-header: $title
+    div.card-body
+      @statement
+
+macro card-footer*(title: string) =
+  div.card
+    div.card-body
+      h5.card-title: $title
+      @statement
+    div.card-footer: "Footer"
+
+macro card-title*(text: string) =
+  h5.card-title: $text
+
+macro card-subtitle*(text: string) =
+  h6.card-subtitle.mb-2.text-body-secondary: $text
+
+macro card-text*(text: string) =
+  p.card-text: $text
+
+macro card-img-top*(src: string) =
+  div.card
+    img.card-img-top src=$src
+    div.card-body
+      @statement
+
+macro card-img-bottom*(src: string) =
+  div.card
+    div.card-body
+      @statement
+    img.card-img-bottom src=$src

@@ -1,0 +1,28 @@
+// Images & Figures
+// https://getbootstrap.com/docs/5.3/content/images/
+// https://getbootstrap.com/docs/5.3/content/figures/
+
+macro img-fluid*(src: string, alt: string = "") =
+  img.img-fluid src=$src alt=$alt
+
+macro img-thumbnail*(src: string, alt: string = "") =
+  img.img-thumbnail src=$src alt=$alt
+
+macro img-rounded*(src: string, alt: string = "") =
+  img.rounded src=$src alt=$alt
+
+macro img-circle*(src: string, alt: string = "") =
+  img.rounded-circle src=$src alt=$alt
+
+macro figure*() =
+  figure.figure
+    @statement
+
+macro figure-img*(src: string, alt: string = "") =
+  img.figure-img.img-fluid.rounded src=$src alt=$alt
+
+macro figure-caption*(text: string) =
+  figcaption.figure-caption: $text
+
+macro figure-caption-right*(text: string) =
+  figcaption.figure-caption.text-end: $text

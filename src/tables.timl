@@ -1,0 +1,68 @@
+// Tables
+// https://getbootstrap.com/docs/5.3/content/tables/
+
+macro table*() =
+  table.table
+    @statement
+
+macro table-striped*() =
+  table.table.table-striped
+    @statement
+
+macro table-hover*() =
+  table.table.table-hover
+    @statement
+
+macro table-bordered*() =
+  table.table.table-bordered
+    @statement
+
+macro table-borderless*() =
+  table.table.table-borderless
+    @statement
+
+macro table-sm*() =
+  table.table.table-sm
+    @statement
+
+macro table-dark*() =
+  table.table.table-dark
+    @statement
+
+macro table-responsive*() =
+  div.table-responsive
+    table.table
+      @statement
+
+@static for $v in ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]:
+  macro table-{$v}*() =
+    table.table.table-{$v}
+      @statement
+
+macro table-head*(cells: array) =
+  thead
+    tr
+      for $cell in $cells:
+        th scope="col": $cell
+
+macro thead*() =
+  thead
+    @statement
+
+macro tbody*() =
+  tbody
+    @statement
+
+macro tfoot*() =
+  tfoot
+    @statement
+
+macro tr*() =
+  tr
+    @statement
+
+macro th*(text: string) =
+  th: $text
+
+macro td*(text: string) =
+  td: $text

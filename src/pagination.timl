@@ -1,0 +1,43 @@
+// Pagination component
+// https://getbootstrap.com/docs/5.3/components/pagination/
+
+macro pagination-item*(href: string, label: string) =
+  li.page-item > a.page-link href=$href: $label
+
+macro pagination-item-active*(label: string) =
+  li.page-item.active aria-current="page" > span.page-link: $label
+
+macro pagination-item-disabled*(label: string) =
+  li.page-item.disabled > span.page-link: $label
+
+macro pagination*() =
+  nav aria-label="Page navigation"
+    ul.pagination
+      @statement
+
+macro pagination-lg*() =
+  nav aria-label="Page navigation"
+    ul.pagination.pagination-lg
+      @statement
+
+macro pagination-sm*() =
+  nav aria-label="Page navigation"
+    ul.pagination.pagination-sm
+      @statement
+
+macro pagination-auto*(total: int, current: int, address: string) =
+  nav aria-label="Page navigation"
+    ul.pagination
+      if $current > 1:
+        li.page-item > a.page-link href=$address: "Previous"
+      else:
+        li.page-item.disabled > span.page-link: "Previous"
+      for $i in 1..$total:
+        if $i == $current:
+          li.page-item.active > span.page-link: $i
+        else:
+          li.page-item > a.page-link href=$address: $i
+      if $current < $total:
+        li.page-item > a.page-link href=$address: "Next"
+      else:
+        li.page-item.disabled > span.page-link: "Next"

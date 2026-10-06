@@ -1,0 +1,39 @@
+// Navs & Tabs
+// https://getbootstrap.com/docs/5.3/components/navs-tabs/
+
+macro nav*() =
+  ul.nav
+    @statement
+
+macro nav-tabs*() =
+  ul.nav.nav-tabs
+    @statement
+
+macro nav-pills*() =
+  ul.nav.nav-pills
+    @statement
+
+macro nav-underline*() =
+  ul.nav.nav-underline
+    @statement
+
+macro nav-item*(href: string, label: string) =
+  li.nav-item > a.nav-link href=$href: $label
+
+macro nav-item-active*(href: string, label: string) =
+  li.nav-item > a.nav-link.active href=$href aria-current="page": $label
+
+macro nav-item-disabled*(label: string) =
+  li.nav-item > a.nav-link.disabled aria-disabled="true": $label
+
+macro tab-content*() =
+  div.tab-content
+    @statement
+
+macro tab-pane*() =
+  div.tab-pane.fade
+    @statement
+
+macro tab-pane-active*() =
+  div.tab-pane.fade.show.active
+    @statement

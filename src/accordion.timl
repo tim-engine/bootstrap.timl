@@ -1,0 +1,26 @@
+// Accordion component
+// https://getbootstrap.com/docs/5.3/components/accordion/
+
+macro accordion-item*(header: string) =
+  div.accordion-item
+    h2.accordion-header
+      button.accordion-button type="button" data-bs-toggle="collapse": $header
+    div.accordion-collapse.collapse
+      div.accordion-body
+        @statement
+
+macro accordion-item-expanded*(header: string) =
+  div.accordion-item
+    h2.accordion-header
+      button.accordion-button type="button" data-bs-toggle="collapse" aria-expanded="true": $header
+    div.accordion-collapse.collapse.show
+      div.accordion-body
+        @statement
+
+macro accordion*() =
+  div.accordion
+    @statement
+
+macro accordion-flush*() =
+  div.accordion.accordion-flush
+    @statement

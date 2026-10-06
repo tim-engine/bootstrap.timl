@@ -1,0 +1,23 @@
+// Progress
+// https://getbootstrap.com/docs/5.3/components/progress/
+
+macro progress-bar*(value: int, min: int = 0, max: int = 100) =
+  div.progress role="progressbar" aria-valuenow=$value aria-valuemin=$min aria-valuemax=$max
+    div.progress-bar style="width: " & $value & "%": $value & "%"
+
+@static for $v in ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]:
+  macro progress-bar-{$v}*(value: int) =
+    div.progress role="progressbar" aria-valuenow=$value aria-valuemin="0" aria-valuemax="100"
+      div.progress-bar.bg-{$v} style="width: " & $value & "%": $value & "%"
+
+macro progress-bar-striped*(value: int) =
+  div.progress role="progressbar" aria-valuenow=$value aria-valuemin="0" aria-valuemax="100"
+    div.progress-bar.progress-bar-striped style="width: " & $value & "%": $value & "%"
+
+macro progress-bar-animated*(value: int) =
+  div.progress role="progressbar" aria-valuenow=$value aria-valuemin="0" aria-valuemax="100"
+    div.progress-bar.progress-bar-striped.progress-bar-animated style="width: " & $value & "%": $value & "%"
+
+macro progress-stacked*() =
+  div.progress-stacked
+    @statement

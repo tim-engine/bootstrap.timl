@@ -1,0 +1,3 @@
+macro mycontainer4*() =
+  div.container
+    $body

@@ -1,0 +1,22 @@
+// Toasts
+// https://getbootstrap.com/docs/5.3/components/toasts/
+
+macro toast*() =
+  div.toast role="alert" aria-live="assertive" aria-atomic="true"
+    @statement
+
+macro toast-header*(title: string) =
+  div.toast role="alert" aria-live="assertive" aria-atomic="true"
+    div.toast-header
+      strong.me-auto: $title
+      button.btn-close type="button" data-bs-dismiss="toast" aria-label="Close"
+    div.toast-body
+      @statement
+
+macro toast-body*() =
+  div.toast-body
+    @statement
+
+macro toast-container*() =
+  div.toast-container.position-fixed.bottom-0.end-0.p-3
+    @statement

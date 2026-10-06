@@ -1,45 +1,53 @@
-// This module implements Container & Grid System
-// for Tim Engine based on Bootstrap v5.x
+// This module implements containers and grid system
+// for Tim Engine based on Bootstrap v5.3
 
-block container*(children: block) =
-  // Create a `container` block
-  div.container $blockAttributes
-    $children
+macro container*() =
+  div.container
+    @statement
 
-for $size in ["fluid", "xxl", "xl", "lg", "md", "sm"]:
-  block container-{$size}*(children: block) =
-    // Create a `container-{$size}` block
-    div.container-{$size} $blockAttributes
-      $children
+@static for $size in ["fluid", "xxl", "xl", "lg", "md", "sm"]:
+  macro container-{$size}*() =
+    div.container-{$size}
+      @statement
 
-block row*(children: block) =
-  // Create a `row` block
-  div.row $blockAttributes
-    $children
+macro row*() =
+  div.row
+    @statement
 
-// Define column blocks for all breakpoints
-block col*(children: block) =
-  // Create an auto `col` block
-  div.col $blockAttributes
-    $children
+macro col*() =
+  div.col
+    @statement
 
-for $x in 1..12:
-  block col-{$x}*(children: block) =
-    // Create a `col-{$x}` block
-    div.col-{$x} $blockAttributes
-      $children
-  
-  block col-sm-{$x}*(children: block) =
-    // Create a `col-sm-{$x}` block
-    div.col-sm-{$x} $blockAttributes
-      $children
+macro col-auto*() =
+  div.col-auto
+    @statement
 
-  block col-md-{$x}*(children: block) =
-    // Create a `col-md-{$x}` block
-    div.col-md-{$x} $blockAttributes
-      $children
+@static for $x in 1..12:
+  macro col-{$x}*() =
+    div.col-{$x}
+      @statement
 
-  block col-lg-{$x}*(children: block) =
-    // Create a `col-lg-{$x}` block
-    div.col-lg-{$x} $blockAttributes
-      $children
+  macro col-sm-{$x}*() =
+    div.col-sm-{$x}
+      @statement
+
+  macro col-md-{$x}*() =
+    div.col-md-{$x}
+      @statement
+
+  macro col-lg-{$x}*() =
+    div.col-lg-{$x}
+      @statement
+
+  macro col-xl-{$x}*() =
+    div.col-xl-{$x}
+      @statement
+
+  macro col-xxl-{$x}*() =
+    div.col-xxl-{$x}
+      @statement
+
+@static for $bp in ["sm", "md", "lg", "xl", "xxl"]:
+  macro col-{$bp}-auto*() =
+    div.col-{$bp}-auto
+      @statement

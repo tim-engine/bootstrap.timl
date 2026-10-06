@@ -1,0 +1,36 @@
+// Navbar
+// https://getbootstrap.com/docs/5.3/components/navbar/
+
+macro navbar*(brand: string) =
+  nav.navbar.navbar-expand-lg.bg-body-tertiary
+    div.container-fluid
+      a.navbar-brand href="#": $brand
+      button.navbar-toggler type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-label="Toggle navigation"
+        span.navbar-toggler-icon
+      div.collapse.navbar-collapse
+        @statement
+
+macro navbar-dark*(brand: string) =
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    div.container-fluid
+      a.navbar-brand href="#": $brand
+      button.navbar-toggler type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-label="Toggle navigation"
+        span.navbar-toggler-icon
+      div.collapse.navbar-collapse
+        @statement
+
+macro navbar-nav*() =
+  ul.navbar-nav.me-auto.mb-2.mb-lg-0
+    @statement
+
+macro nav-item*(href: string, label: string) =
+  li.nav-item > a.nav-link href=$href: $label
+
+macro nav-item-active*(href: string, label: string) =
+  li.nav-item > a.nav-link.active href=$href aria-current="page": $label
+
+macro nav-item-dropdown*(label: string) =
+  li.nav-item.dropdown
+    a.nav-link.dropdown-toggle href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false": $label
+    ul.dropdown-menu
+      @statement

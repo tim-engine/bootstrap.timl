@@ -1,0 +1,38 @@
+// Helpers
+// https://getbootstrap.com/docs/5.3/helpers/
+
+macro clearfix*() =
+  div.clearfix
+    @statement
+
+@static for $ratio in ["1x1", "4x3", "16x9", "21x9"]:
+  macro ratio-{$ratio}*() =
+    div.ratio.ratio-{$ratio}
+      @statement
+
+macro stretched-link*(href: string, label: string) =
+  a.stretched-link href=$href: $label
+
+macro text-truncate*(text: string) =
+  span.text-truncate: $text
+
+macro vr*() =
+  div.vr
+
+macro visually-hidden*(text: string) =
+  span.visually-hidden: $text
+
+macro stack-v*() =
+  div.vstack.gap-3
+    @statement
+
+macro stack-h*() =
+  div.hstack.gap-3
+    @statement
+
+macro colored-link*(href: string, label: string) =
+  a.link-primary href=$href: $label
+
+@static for $c in ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]:
+  macro link-{$c}*(href: string, label: string) =
+    a.link-{$c} href=$href: $label
