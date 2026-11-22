@@ -24,10 +24,15 @@ macro form-textarea-floating*(label: string, name: string, rows: int = 3) =
     textarea.form-control name=$name rows=$rows placeholder=$label
     label: $label
 
-macro form-select*(name: string, opts: array) =
+macro form-select*(name: string) =
   select.form-select name=$name
-    for $opt in $opts:
-      option value=$opt.value: $opt.label
+    @statement
+
+macro form-option*(value: string, label: string) =
+  option value=$value: $label
+
+macro form-option-selected*(value: string, label: string) =
+  option value=$value selected: $label
 
 macro form-select-floating*(label: string, name: string) =
   div.form-floating.mb-3

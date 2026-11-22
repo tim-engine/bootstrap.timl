@@ -1,6 +1,0 @@
-macro container*() =
-  div.container
-    @statement
-macro row*() =
-  div.row
-    @statement

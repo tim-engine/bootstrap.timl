@@ -1,3 +1,0 @@
-macro mycontainer*() =
-  div.container
-    @statement

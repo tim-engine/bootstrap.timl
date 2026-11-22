@@ -1,3 +1,0 @@
-macro mycontainer2*(children: block) =
-  div.container
-    $children

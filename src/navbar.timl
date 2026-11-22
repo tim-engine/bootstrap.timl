@@ -23,11 +23,8 @@ macro navbar-nav*() =
   ul.navbar-nav.me-auto.mb-2.mb-lg-0
     @statement
 
-macro nav-item*(href: string, label: string) =
-  li.nav-item > a.nav-link href=$href: $label
-
-macro nav-item-active*(href: string, label: string) =
-  li.nav-item > a.nav-link.active href=$href aria-current="page": $label
+// Note: use @nav-item and @nav-item-active from navs.timl
+// for links inside @navbar-nav (also covered by the bootstrap aggregator).
 
 macro nav-item-dropdown*(label: string) =
   li.nav-item.dropdown

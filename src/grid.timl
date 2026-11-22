@@ -51,3 +51,49 @@ macro col-auto*() =
   macro col-{$bp}-auto*() =
     div.col-{$bp}-auto
       @statement
+
+// Gutters: g-*, gx-*, gy-* (0..5)
+// https://getbootstrap.com/docs/5.3/layout/gutters/
+
+@static for $n in 0..5:
+  macro row-g-{$n}*() =
+    div.row.g-{$n}
+      @statement
+
+  macro row-gx-{$n}*() =
+    div.row.gx-{$n}
+      @statement
+
+  macro row-gy-{$n}*() =
+    div.row.gy-{$n}
+      @statement
+
+// Offsets: offset-*-* (1..11, all breakpoints)
+// https://getbootstrap.com/docs/5.3/layout/columns/#offsetting-columns
+
+@static for $n in 1..11:
+  macro col-offset-{$n}*() =
+    div.col.offset-{$n}
+      @statement
+
+@static for $bp in ["sm", "md", "lg", "xl", "xxl"]:
+  @static for $n in 1..11:
+    macro col-offset-{$bp}-{$n}*() =
+      div.col.offset-{$bp}-{$n}
+        @statement
+
+// Order: order-* (0..5, first, last)
+// https://getbootstrap.com/docs/5.3/layout/columns/#order-classes
+
+@static for $n in 0..5:
+  macro order-{$n}*() =
+    div.order-{$n}
+      @statement
+
+macro order-first*() =
+  div.order-first
+    @statement
+
+macro order-last*() =
+  div.order-last
+    @statement

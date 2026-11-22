@@ -13,12 +13,16 @@ macro card-header*(title: string) =
     div.card-body
       @statement
 
-macro card-footer*(title: string) =
+macro card-footer*() =
+  div.card-footer
+    @statement
+
+macro card-with-footer*(title: string, footer: string) =
   div.card
     div.card-body
       h5.card-title: $title
       @statement
-    div.card-footer: "Footer"
+    div.card-footer: $footer
 
 macro card-title*(text: string) =
   h5.card-title: $text
@@ -28,6 +32,9 @@ macro card-subtitle*(text: string) =
 
 macro card-text*(text: string) =
   p.card-text: $text
+
+macro card-link*(href: string, label: string) =
+  a.card-link href=$href: $label
 
 macro card-img-top*(src: string) =
   div.card

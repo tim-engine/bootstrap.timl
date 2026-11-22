@@ -1,27 +1,29 @@
 // Placeholders
 // https://getbootstrap.com/docs/5.3/components/placeholders/
 
-macro placeholder*(cols: int = 12) =
-  span.placeholder.col-12
+macro placeholder*(cols: string = "12") =
+  span class="placeholder col-" & $cols
 
 @static for $v in ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]:
-  macro placeholder-{$v}*(cols: int = 12) =
-    span.placeholder.col-12.bg-{$v}
+  macro placeholder-{$v}*(cols: string = "12") =
+    span class="placeholder col-" & $cols & " bg-{$v}"
 
-macro placeholder-lg*(cols: int = 12) =
-  span.placeholder.col-12.placeholder-lg
+macro placeholder-lg*(cols: string = "12") =
+  span class="placeholder col-" & $cols & " placeholder-lg"
 
-macro placeholder-sm*(cols: int = 12) =
-  span.placeholder.col-12.placeholder-sm
+macro placeholder-sm*(cols: string = "12") =
+  span class="placeholder col-" & $cols & " placeholder-sm"
 
-macro placeholder-xs*(cols: int = 12) =
-  span.placeholder.col-12.placeholder-xs
+macro placeholder-xs*(cols: string = "12") =
+  span class="placeholder col-" & $cols & " placeholder-xs"
 
-macro placeholder-glow*(cols: int = 12) =
-  span.placeholder.col-12.placeholder-glow
+macro placeholder-glow*() =
+  p.placeholder-glow
+    @statement
 
-macro placeholder-wave*(cols: int = 12) =
-  span.placeholder.placeholder-wave.col-12
+macro placeholder-wave*() =
+  p.placeholder-wave
+    @statement
 
 macro placeholder-card*() =
   div.card aria-hidden="true"

@@ -1,0 +1,19 @@
+// Scrollspy
+// https://getbootstrap.com/docs/5.3/components/scrollspy/
+
+macro scrollspy-nav*(id: string) =
+  nav.navbar id=$id
+    ul.nav.nav-pills
+      @statement
+
+macro scrollspy-link*(href: string, label: string) =
+  li.nav-item > a.nav-link href=$href: $label
+
+macro scrollspy-content*(target: string) =
+  div data-bs-spy="scroll" data-bs-target="#" & $target tabindex="0"
+    @statement
+
+macro scrollspy-section*(id: string, title: string) =
+  div id=$id
+    h4: $title
+    @statement

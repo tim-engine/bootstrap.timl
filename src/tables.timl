@@ -25,10 +25,6 @@ macro table-sm*() =
   table.table.table-sm
     @statement
 
-macro table-dark*() =
-  table.table.table-dark
-    @statement
-
 macro table-responsive*() =
   div.table-responsive
     table.table
@@ -39,7 +35,7 @@ macro table-responsive*() =
     table.table.table-{$v}
       @statement
 
-macro table-head*(cells: array) =
+macro table-head*(cells: array[string]) =
   thead
     tr
       for $cell in $cells:
@@ -66,3 +62,13 @@ macro th*(text: string) =
 
 macro td*(text: string) =
   td: $text
+
+macro caption*(text: string) =
+  caption: $text
+
+macro caption-top*(text: string) =
+  caption.caption-top: $text
+
+macro tbody-divider*() =
+  tbody.table-group-divider
+    @statement

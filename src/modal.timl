@@ -54,3 +54,13 @@ macro fullscreen-modal*(title: string) =
         button.btn-close data-bs-dismiss="modal" aria-label="Close" type="button"
       div.modal-body
         @statement
+
+@static for $bp in ["sm", "md", "lg", "xl", "xxl"]:
+  macro fullscreen-modal-{$bp}-down*(title: string) =
+    div.modal data-bs-keyboard="false" tabindex="-1"
+      div.modal-dialog.modal-fullscreen-{$bp}-down > div.modal-content
+        div.modal-header
+          h5.modal-title: $title
+          button.btn-close data-bs-dismiss="modal" aria-label="Close" type="button"
+        div.modal-body
+          @statement

@@ -36,3 +36,31 @@ macro colored-link*(href: string, label: string) =
 @static for $c in ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]:
   macro link-{$c}*(href: string, label: string) =
     a.link-{$c} href=$href: $label
+
+@static for $c in ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]:
+  macro text-bg-{$c}*(text: string) =
+    div.text-bg-{$c}: $text
+
+@static for $n in [25, 50, 75, 100]:
+  macro opacity-{$n}*() =
+    div.opacity-{$n}
+      @statement
+
+macro fixed-top*() =
+  div.fixed-top
+    @statement
+
+macro fixed-bottom*() =
+  div.fixed-bottom
+    @statement
+
+macro sticky-top*() =
+  div.sticky-top
+    @statement
+
+macro sticky-bottom*() =
+  div.sticky-bottom
+    @statement
+
+macro focus-ring*(href: string, label: string) =
+  a.focus-ring href=$href: $label
